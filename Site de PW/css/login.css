@@ -1,0 +1,65 @@
+/* Estilos para a tela de login */
+.login-container {
+    position: fixed; /* Define a posição fixa para cobrir toda a tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adiciona um fundo branco semi-transparente para tornar o texto mais legível */
+    background-image: url('Imagem/vista-de-uma-paisagem-natural-espetacular.jpg'); /* Substitua pelo URL da sua imagem */
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Usa flexbox para centralizar o conteúdo verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.login-container form {
+    max-width: 400px; /* Define uma largura máxima para o formulário */
+    width: 100%; /* Largura total do formulário */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Adiciona um fundo branco semi-transparente para o formulário */
+    border-radius: 5px;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"],
+button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover {
+    background-color: #0056b3;
+}
