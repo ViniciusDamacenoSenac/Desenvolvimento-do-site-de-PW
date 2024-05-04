@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar conta | github.com/andersonleandrog</title>
+
+  <!--CSS-->
+  <link rel="stylesheet" href="css/senha.css">
+  <link rel="stylesheet" href="css/media.css">
+
+  <!--JS & jQuery-->
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="banner">
+      <nav>
+        <nav>
+          <ul>
+            <div></div>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Fazer Cadastro</a></li>
+          </ul>
+          <div>
+        </nav>
+        <img src="img/login.png" alt="imagem-login">
+        <p style="color: #fff;">
+          Seja bem vindo, acesse e aproveite todo o conteúdo,
+          <br>somos uma equipe de profissionais empenhados em
+          <br>trazer o melhor conteúdo direcionado a você usuário.
+        </p>
+    </div>
+
+    <div class="box-login">
+      <h1>Junte-se a nós,<br>Faça o seu cadastro para aproveitar os recursos do site!</h1>
+
+      <div class="box-account">
+        <h2>informe seus dados</h2>
+        <input type="text" name="username" id="username" placeholder="apelido">
+        <input type="email" name="email" id="email" placeholder="e-mail">
+        <input type="email" name="cmail" id="cmail" placeholder="confirmar o e-mail">
+        <input type="password" name="password" id="password" placeholder="senha">
+        <input type="password" name="cpassword" id="cpassword" placeholder="confirmar a senha">
+
+        <div class="check">
+          <input type="checkbox" name="termo" id="termo" style="width: 13px; height: 13px;">
+          <label for="termos" style="color: #3d3d3d;">li e aceito os termos</label>
+        </div>
+
+        <button id="registerButton">Criar conta</button>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <div id="bubble">
+      <img src="img/user.png" alt="icone-usuário" title="fazer-login">
+    </div>
+  </a>
+
+  <script>
+    $(document).ready(function () {
+      $('#registerButton').click(function () {
+        // Obtendo os valores dos campos de entrada
+        var username = $('#username').val().trim();
+        var email = $('#email').val().trim();
+        var cmail = $('#cmail').val().trim();
+        var password = $('#password').val().trim();
+        var cpassword = $('#cpassword').val().trim();
+
+        // Verificando se os campos estão vazios
+        if (username === '' || email === '' || cmail === '' || password === '' || cpassword === '') {
+          alert('Por favor, preencha todos os campos.');
+          return false;
+        }
+
+        // Verificando o comprimento do nome de usuário
+        if (username.length < 6 || username.length > 50) {
+          alert('O nome de usuário deve ter entre 6 e 50 caracteres.');
+          return false;
+        }
+
+        // Verificando se os emails coincidem
+        if (email !== cmail) {
+          alert('Os endereços de e-mail não coincidem.');
+          return false;
+        }
+
+        // Verificando o comprimento da senha
+        if (password.length < 8 || password.length > 50) {
+          alert('A senha deve ter entre 8 e 50 caracteres.');
+          return false;
+        }
+
+        // Verificando se as senhas coincidem
+        if (password !== cpassword) {
+          alert('As senhas não coincidem.');
+          return false;
+        }
+
+        // Verificando se o termo foi aceito
+        if (!$('#termo').prop('checked')) {
+          alert('Você precisa aceitar os termos para criar uma conta.');
+          return false;
+        }
+
+        // Se todos os campos estiverem preenchidos corretamente, o formulário será enviado
+        alert('Cadastro bem-sucedido!');
+        // Aqui você pode adicionar a lógica para enviar o formulário para o servidor
+        window.location.href = "login.html"
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/senha.css">
+    <link rel="stylesheet" href="css/media.css">
+
+    <!-- JS & jQuery -->
+    <script type="text/javascript" src="js/TelaLoginCadastro.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="banner">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </nav>
+            <img src="img/login.png" alt="imagem-login">
+            <p style="color: #fff; font-weight: 400;">
+                Seja bem vindo, acesse e aproveite todo o conteúdo,
+                <br>somos uma equipe de profissionais empenhados em
+                <br>trazer o melhor conteúdo direcionado a você, usuário.
+            </p>
+        </div>
+
+        <div class="box-login">
+            <h1>
+                Olá!<br>
+                Seja bem vindo de volta.
+            </h1>
+
+            <div class="box">
+                <h2>Faça o seu login agora</h2>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+
+                <a href="esqueceu-senha.html">
+                    <p>Esqueceu a sua senha?</p>
+                </a>
+
+                <button id="loginButton">Login</button>
+
+                <a href="register.html">
+                    <p>Criar uma conta</p>
+                </a>
+
+                <div class="social">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <img src="img/google.png" alt="Google">
+                    <img src="img/twitter.png" alt="Twitter">
+                    <img src="img/github.png" alt="GitHub">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#loginButton').click(function () {
+                // Obtendo os valores dos campos de entrada
+                var username = $('#username').val().trim();
+                var password = $('#password').val().trim();
+
+                // Verificando se os campos estão vazios
+                if (username === '') {
+                    alert('Por favor, insira o nome de usuário.');
+                    return false;
+                }
+
+                if (password === '') {
+                    alert('Por favor, insira a senha.');
+                    return false;
+                }
+
+                // Verificando o comprimento do nome de usuário
+                if (username.length < 6 || username.length > 50) {
+                    alert('O nome de usuário deve ter entre 6 e 50 caracteres.');
+                    return false;
+                }
+
+                // Verificando o comprimento da senha
+                if (password.length < 8 || password.length > 50) {
+                    alert('A senha deve ter entre 8 e 50 caracteres.');
+                    return false;
+                }
+
+                // Se todos os campos estiverem preenchidos e dentro dos limites de comprimento, o formulário será enviado
+                alert('Login bem-sucedido!');
+             
+                // Aqui você pode adicionar a lógica para enviar o formulário para o servidor
+                window.location.href = "index.html";
+    });
+});
+        
+        
+    </script>
+
+</body>
+
+</html>
