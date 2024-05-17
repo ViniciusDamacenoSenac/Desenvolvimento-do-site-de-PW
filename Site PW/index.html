@@ -21,7 +21,7 @@
           <li><a href="#catalog">Catálogo</a></li>
           <li><a href="#about">Sobre</a></li>
           <li><a href="#feature">Características</a></li>
-          <li><a href="#reservas">Minhas Reservas</a></li>
+          <li><a href="paginaDest.html">Minhas Reservas</a></li>
           <li><button id="Cadastro-button">Cadastrar</button></li>
           <!-- Botão de login -->
           <li><button id="login-button">Login</button></li>
@@ -30,26 +30,25 @@
       <!-- Bloco de texto e imagem -->
       <div class="header-block">
         <div class="text">
-          <h2>Procure oque há de melhor para você!</h2>
+          <h2>Procure o que há de melhor para você!</h2>
           <p>
-            Explore a lugares com os melhores preços da melhor
-            plataforma
+            Explore os lugares com os melhores preços da melhor plataforma.
           </p>
         </div>
-
-        <!-- Modal de confirmação -->
-        <div id="modal-confirmacao-reserva" class="modal">
-          <div class="modal-content">
-            <span class="fechar-modal">&times;</span>
-            <p>Carro adicionado a lista de Reserva!</p>
-            <!-- Opções adicionais podem ser incluídas aqui -->
-          </div>
+        <!-- Imagens do cabeçalho -->
+        <div class="header-images">
+          <!-- Imagem principal -->
+          <img id="header-image" src="images/pexels-pixabay-39691.jpg" alt="Car" />
+          <!-- Imagens adicionais -->
+          <img src="images/headerImg.jpg" alt="Image 1" />
+          <img src="images/headerImg2.jpg" alt="Image 2" />
+          <!---<img src="images/image3.jpg" alt="Image 3" />---->
         </div>
-
-        <img src="images/pexels-pixabay-39691.jpg" alt="Car" />
       </div>
     </div>
   </header>
+  
+  
   <section class="catalog" id="catalog">
     <div class="content">
       <div class="title-wrapper-catalog">
@@ -406,45 +405,30 @@
     </ul>
   </div>
 
-  <!-- Modal de confirmação -->
-  <div id="modal-confirmacao-reserva" class="modal">
-    <div class="modal-content">
-      <span class="fechar-modal">&times;</span>
-      <h2>Reservar local?</h2>
-    </div>
-  </div>
   <div id="modal-reserva" class="modal">
     <div class="modal-content">
       <span class="fechar-modal">&times;</span>
-      <h2>Reserva de Viagem</h2>
+      <h2>Reserva</h2>
+      <p>Número de Inscrição: <span id="numero-inscricao"></span></p>
+      <p>Opção de Transporte: <span id="opcao-transporte"></span></p>
+      <p>Classe de Viagem: <span id="classe-viagem"></span></p>
+      <h3>Detalhes do Veículo</h3>
+      <img id="carro-imagem" src="" alt="Imagem do Carro">
+      <h4 id="carro-titulo"></h4>
+      <p id="carro-descricao"></p>
+      <p id="carro-preco"></p>
+      <h3>Descrição do Modal Selecionado</h3>
+      <p>Preço: <span id="descricao-preco"></span></p>
+      <p>Local: <span id="descricao-local"></span></p>
       <form id="form-reserva">
-        <label for="data-inicio">Data de Início:</label>
-        <input type="date" id="data-inicio" name="data-inicio" required />
-        <label for="data-fim">Data de Fim:</label>
-        <input type="date" id="data-fim" name="data-fim" required />
-        <button type="submit">Confirmar Reserva</button>
+        <button type="submit">Reservar</button>
       </form>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-         var loginButton = document.getElementById("login-button");
-           loginButton.addEventListener("click", function () {
-        // Redireciona para a página de login (login.html)
-        window.location.href = "login.html";
-      });
-    });
-    
-    var cadastroButton = document.getElementById("Cadastro-button");
+  
 
-
-cadastroButton.addEventListener("click", function () {
-  // Redireciona para a página de registro (register.html)
-  window.location.href = "register.html";
-});
-</script>
-
-  <script src="script.js"></script>
+ 
+  <script src="js/script.js"></script>
 </body>
 
 </html>

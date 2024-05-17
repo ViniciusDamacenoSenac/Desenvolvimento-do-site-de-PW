@@ -1,7 +1,25 @@
-window.addEventListener("load", () => {
-  //...
-});
 document.addEventListener("DOMContentLoaded", function () {
+  // Variável para armazenar o número de inscrição
+  let numeroInscricao = null;
+
+  // Selecionar o botão "Login"
+  const loginButton = document.querySelector("#login-button");
+
+  // Adicionar evento de clique ao botão "Login"
+  loginButton.addEventListener("click", () => {
+    // Redirecionar para a página de login (login.html)
+    window.location.href = "login.html";
+  });
+
+  // Selecionar o botão de cadastro
+  const cadastroButton = document.querySelector("#Cadastro-button");
+
+  // Adicionar evento de clique ao botão de cadastro
+  cadastroButton.addEventListener("click", function () {
+    // Redireciona para a página de registro (register.html)
+    window.location.href = "register.html";
+  });
+
   // Seleciona o botão "Alugar"
   const botoesAlugar = document.querySelectorAll(".alugar-button");
 
@@ -10,6 +28,15 @@ document.addEventListener("DOMContentLoaded", function () {
     botao.addEventListener("click", function () {
       // Abre o modal de reserva
       document.getElementById("modal-reserva").style.display = "block";
+
+      // Se o número de inscrição ainda não foi gerado, gere-o agora
+      if (numeroInscricao === null) {
+        // Gerar um número de inscrição aleatório com 4 dígitos
+        numeroInscricao = Math.floor(Math.random() * 9000) + 1000;
+      }
+
+      // Exibir o número de inscrição no modal
+      document.getElementById("numero-inscricao").textContent = "Número de Inscrição: " + numeroInscricao;
     });
   });
 
@@ -32,53 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "reservas.html";
   });
 
-  // Selecionar o botão "Minhas Reservas"
-  const minhaReservaButton = document.querySelector(".minha-reserva-button");
-
-  // Adicionar evento de clique ao botão "Minhas Reservas"
-  minhaReservaButton.addEventListener("click", () => {
-    // Redirecionar para a página de reservas (substitua 'reservas.html' pelo URL correto)
-    window.location.href = "reservas.html";
-  });
-
-  // Selecionar o botão "Login"
-  const loginButton = document.querySelector("nav button");
-
-  // Verificar se o botão de login foi encontrado
-  console.log(loginButton);
-
-  // Adicionar evento de clique ao botão "Login"
-  loginButton.addEventListener("click", () => {
-    // Verificar se o evento de clique está sendo acionado
-    console.log("Botão de login clicado!");
-    // Redirecionar para a página de login (login.html)
-    window.location.href = "login.html";
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  // Seleciona todos os elementos do carro
-  var carros = document.querySelectorAll(".card-item");
-
-  // Adiciona um ouvinte de evento de clique para cada carro
-  carros.forEach(function (carro) {
-    carro.addEventListener("click", function () {
-      // Busca as informações do carro clicado
-      var id = carro.getAttribute("data-id");
-      var carroInfo = obterDetalhesCarro(id);
-
-      // Preenche as informações do modal com os detalhes do carro
-      document.getElementById("carro-imagem").src = carroInfo.imagem;
-      document.getElementById("carro-titulo").textContent = carroInfo.titulo;
-      document.getElementById("carro-descricao").textContent =
-        carroInfo.descricao;
-      document.getElementById("carro-preco").textContent =
-        "Preço: " + carroInfo.preco;
-
-      // Abre o modal
-      abrirModalCarro();
-    });
-  });
-
   // Função para abrir o modal de detalhes do carro
   function abrirModalCarro() {
     var modalCarro = document.getElementById("modal-carro");
@@ -88,9 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Função para buscar as informações do carro com base no ID
   function obterDetalhesCarro(id) {
     // Aqui você pode implementar a lógica para buscar as informações do carro com base no ID
-    // Por exemplo, você pode ter um objeto ou uma lista de objetos contendo os detalhes de todos os carros
-    // e retornar as informações do carro com o ID correspondente
-    // Por enquanto, vamos retornar informações fictícias para demonstração
+    // Por enquanto, retornamos informações fictícias para demonstração
     return {
       imagem: "caminho/para/imagem.jpg",
       titulo: "Carro Modelo X",
@@ -98,4 +76,104 @@ document.addEventListener("DOMContentLoaded", function () {
       preco: "$100/dia",
     };
   }
+
+  // Função para reservar viagem
+  function reservarViagem(
+    nome,
+    hotel,
+    nota,
+    limpeza,
+    qualidade,
+    referencia
+  ) {
+    // Armazena os detalhes da viagem em variáveis JavaScript
+    sessionStorage.setItem("nomeViagem", nome);
+    sessionStorage.setItem("hotelViagem", hotel);
+    sessionStorage.setItem("notaViagem", nota);
+    sessionStorage.setItem("limpezaViagem", limpeza);
+    sessionStorage.setItem("qualidadeViagem", qualidade);
+    sessionStorage.setItem("referenciaViagem", referencia);
+
+    // Redireciona para a página de reservas
+    window.location.href = "reservas.html";
+  }
+
+  // Preencher o modal de reserva com as informações necessárias
+  const modalReserva = document.getElementById("modal-reserva");
+
+  // Adicionar evento de clique ao botão de fechar do modal
+  modalReserva.addEventListener("click", function () {
+    modalReserva.style.display = "none";
+  });
+
+  // Impedir que o clique dentro do modal feche o modal
+  const modalContent = document.querySelector(".modal-content");
+  modalContent.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  // Adicionar informações ao modal de reserva
+  const modalTransporte = document.getElementById("opcao-transporte");
+  const modalClasseViagem = document.getElementById("classe-viagem");
+  const modalDescricao = document.getElementById("descricao-modal");
+
+  // Aqui você pode substituir esses valores pelos valores reais
+  modalTransporte.textContent = "Opção de Transporte: Avião";
+  modalClasseViagem.textContent = "Classe de Viagem: Alta";
+  modalDescricao.textContent = "Preço: $500, Nome do Local: Exemplo";
+});
+
+// Lista de URLs das imagens
+const imageUrls = [
+  "pexels-pixabay-39691.jpg",
+  "images/headerImg.jpg",
+  "images/headerImg2.jpg",
+  // "images/aeroporto foto.jpg"
+];
+
+// Lista de imagens do cabeçalho
+const headerImages = document.querySelectorAll('.header-images img');
+let currentImageIndex = 0;
+
+// Função para mostrar a próxima imagem
+function showNextImage() {
+  // Oculta todas as imagens
+  headerImages.forEach(image => {
+    image.style.display = 'none';
+  });
+
+  // Mostra a próxima imagem
+  headerImages[currentImageIndex].style.display = 'block';
+
+  // Atualiza o índice da próxima imagem
+  currentImageIndex = (currentImageIndex + 1) % headerImages.length;
+}
+
+// Mostra a próxima imagem a cada 5 segundos
+setInterval(showNextImage, 5000);
+
+// Função para rolar suavemente até o elemento alvo
+function scrollToTarget(target) {
+  target.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Função para lidar com o clique no botão de Procurar
+document.querySelector('.search-button').addEventListener('click', function () {
+  // Obtém o texto de pesquisa
+  var searchText = document.querySelector('.search-input').value.toLowerCase();
+
+  // Obtém todos os itens de cartão
+  var cardItems = document.querySelectorAll('.card-item');
+
+  // Itera sobre cada item de cartão
+  cardItems.forEach(function (item) {
+    // Obtém o texto do título do item
+    var title = item.querySelector('h3').textContent.toLowerCase();
+
+    // Verifica se o texto de pesquisa corresponde ao título do item
+    if (title.includes(searchText)) {
+      // Rola suavemente até o item correspondente
+      scrollToTarget(item);
+    }
+  });
 });

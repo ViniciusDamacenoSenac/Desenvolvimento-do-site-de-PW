@@ -228,66 +228,45 @@ section .card-item {
   color: #000000d7;
 }
 
-/* Estilos para o carrillo de compras */
-.carrinho {
-  display: none;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.carrinho h3 {
-  margin-bottom: 10px;
-}
-
-#carrinho-lista {
-  list-style-type: none;
-  padding: 0;
-}
-
-#carrinho-lista li {
-  margin-bottom: 5px;
-}
-
-/* Estilos para o modal de confirmação */
+/* Estilo para o modal */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
+  display: none; /* Oculta o modal por padrão */
+  position: fixed; /* Permite que o modal permaneça fixo na tela */
+  z-index: 1; /* Define a ordem de empilhamento do modal */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto; /* Adiciona rolagem quando o conteúdo do modal excede a tela */
+  background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo semi-transparente */
 }
 
+/* Estilo para o conteúdo do modal */
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  border-radius: 10px;
 }
 
+/* Estilo para o botão de fechar */
 .fechar-modal {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
+.fechar-modal:hover,
 .fechar-modal:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
 }
+
+
 
 .card-item button {
   width: 90%;
@@ -556,3 +535,48 @@ footer .last {
     padding-left: 10%;
   }
 }
+
+reserva-confirmada {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #000000;
+}
+
+.reserva-confirmada h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.reserva-confirmada p {
+  margin-bottom: 10px;
+}
+
+.reserva-confirmada strong {
+  font-weight: bold;
+}
+
+    /* Transição suave para todos os elementos da página */
+    .fade-in * {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    /* Classe para mostrar os elementos gradualmente */
+    .fade-in.loaded * {
+      opacity: 1;
+    }
+
+    /* Transição suave para todos os elementos da página */
+    .fade-in * {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    /* Classe para mostrar os elementos gradualmente */
+    .fade-in.loaded * {
+      opacity: 1;
+    }
+

@@ -5,13 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservas - Travellers+</title>
+  <title>Reserva Confirmada - Travellers+</title>
   <link rel="stylesheet" href="css/Reservas.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/ControleReserva.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
-  <!-- Cabeçalho -->
+<body class="fade-in">
   <header>
     <div class="content">
       <nav>
@@ -22,8 +23,7 @@
           <li><a href="#catalog">Catálogo</a></li>
           <li><a href="#about">Sobre</a></li>
           <li><a href="#feature">Características</a></li>
-          <li><a href="#reserva">Minhas Reservas</a></li>
-          <li><a href="#cadastrar">Fazer Cadastros</a></li>
+          <li><a href="paginaDest.html">Minhas Reservas</a></li>
           <!-- Botão de login -->
           <li><button>Login</button></li>
         </ul>
@@ -31,34 +31,33 @@
     </div>
   </header>
 
-  <!-- Div com campos de pagamento -->
+  <!-- Formulário de pagamento -->
   <div class="pagamento-form">
-    <h2>Pagamento</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required><br><br>
-      
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" required><br><br>
-      
-      <label for="nm_cartao">Numero do Cartão:</label>
-      <input type="text" id="nm_cartao" name="nm_cartao" required><br><br>
-      
-      <label for="Hoteis disponiveis">Hoteis disponiveis:</label>
-      <select id="Hoteis disponiveis" name="Hoteis disponiveis">
-        <option value="A">A</option>
-        <option value="B">B</option>
+    <h2>Detalhes do Pagamento</h2>
+    <form id="payment-form">
+      <label for="nome">Nome no Cartão</label>
+      <input type="text" id="nome" name="nome" required>
 
+      <label for="numero-cartao">Número do Cartão</label>
+      <input type="text" id="numero-cartao" name="numero-cartao" pattern="[0-9]{16}" title="Por favor, insira um número de cartão válido de 16 dígitos." required>
 
-        <label for="tipo_transporte">tipo_transporte:</label>
-        <select id="tipo_transporte" name="tipo_transporte">
-          <option value="aereo">aereo</option>
-          <option value="terrestre">terrestre</option>
-  
-      </select><br><br>
-      
-      <button type="submit">Confirmar</button>
-      <button type="button" onclick="fecharForm()">Fechar</button>
+      <label for="validade">Validade</label>
+      <input type="text" id="validade" name="validade" pattern="(0[1-9]|1[0-2])/[0-9]{2}" title="Por favor, insira uma data de validade no formato MM/AA." placeholder="MM/AA" required>
+
+      <label for="cvv">Código de segurança</label>
+      <input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" title="Por favor, insira um código de segurança válido de 3 dígitos." required>
+
+      <label for="metodo-pagamento">Método de Pagamento</label>
+      <select id="metodo-pagamento" name="metodo-pagamento" required>
+        <option value="">Selecione um método de pagamento</option>
+        <option value="pix">PIX</option>
+        <option value="boleto">Boleto</option>
+        <option value="Debito">Debito</option>
+        <option value="Credito">Credito</option>
+      </select>
+
+      <button type="submit" id="pagar-button">Pagar</button>
+      <button type="reset">Limpar</button>
     </form>
   </div>
 
@@ -93,8 +92,12 @@
     </div>
     <div class="last">travellers+ 2024</div>
   </footer>
+<script>
 
-  <script src="Reserva.js"></script>
-</body>
+
+  </script>
+    
+    <script src="js/reserva.js"></script>
+  </body>
 
 </html>
